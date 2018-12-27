@@ -28,7 +28,7 @@
 
 <script>
 
-import DialogWrapper from '@/components/DialogWrapper'
+import DialogWrapper from './DialogWrapper'
 
 export default {
     data() {
