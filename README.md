@@ -5,15 +5,31 @@
 ## Usage
 
 ```HTML
-<VFormDialog :text="hello"></VFormDialog>
+<VFormDialog v-model="dialogVisible" @save="handleSave">
+  <v-text-field v-model="firstName" label="First name"></v-text-field>
+  <v-text-field v-model="lastName" label="Last name"></v-text-field>
+</VFormDialog>
+<v-btn @click="dialogVisible = true">Show</v-btn>
 ```
 
 ```javascript
 import { VFormDialog } from 'vuetify-form-dialog'
 
 export default {
+  data() {
+    return {
+      firstName: '',
+      lastName: '',
+      dialogVisible
+    }
+  },
   components: {
     VFormDialog
+  },
+  methods: {
+    handleSave() {
+      // Handle saving here
+    }
   }
 }
 ```
