@@ -1,5 +1,5 @@
 <template>
-    <DialogWrapper ref="dialog" :value="value" @input="(value) => $emit('input', value)"
+    <VDialogWrapper ref="dialog" :value="value" @input="(value) => $emit('input', value)"
         :buttonsRight="buttonsRight" 
         :cancelButtonColor="cancelButtonColor" 
         :cancelButtonText="cancelButtonText" 
@@ -23,21 +23,22 @@
         <v-form ref="form" v-model="formValid">
             <slot/>
         </v-form>
-    </DialogWrapper>
+    </VDialogWrapper>
 </template>
 
 <script>
 
-import DialogWrapper from './DialogWrapper'
+import VDialogWrapper from './VDialogWrapper'
 
 export default {
+	name: 'VFormDialog',
     data() {
         return {
             formValid: false
         }
     },
     components: {
-        DialogWrapper
+        VDialogWrapper
     },
 	props: {
 		buttonsRight: Boolean,

@@ -24,6 +24,7 @@
 <script>
 
 export default {
+	name: 'VDialogWrapper',
 	props: {
 		buttonsRight: Boolean,
 		cancelButtonColor: String,
