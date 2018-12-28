@@ -13,9 +13,13 @@
 			</v-card-text>
 			<v-card-actions>
 				<v-spacer v-if="buttonsRight"/>
-				<v-btn v-if="!hideSaveButton" :color="$saveButtonColor" :disabled="!isValid" @click="save">{{saveButtonText}}</v-btn>
-				<v-btn v-if="!hideCancelButton" :color="$cancelButtonColor" @click="cancel">{{cancelButtonText}}</v-btn>
-				<v-btn v-if="!hideClearButton" :color="$clearButtonColor" @click="clear">{{clearButtonText}}</v-btn>
+				<slot name="beforeButtons"/>
+				<slot name="buttons">
+					<v-btn v-if="!hideSaveButton" :color="$saveButtonColor" :disabled="!isValid" @click="save">{{saveButtonText}}</v-btn>
+					<v-btn v-if="!hideCancelButton" :color="$cancelButtonColor" @click="cancel">{{cancelButtonText}}</v-btn>
+					<v-btn v-if="!hideClearButton" :color="$clearButtonColor" @click="clear">{{clearButtonText}}</v-btn>
+				</slot>
+				<slot name="afterButtons"/>
 			</v-card-actions>
 		</v-card>
 	</v-dialog>

@@ -23,6 +23,9 @@
         <v-form ref="form" v-model="formValid">
             <slot/>
         </v-form>
+        <template slot="beforeButtons"><slot name="beforeButtons"/></template>
+        <template slot="buttons"><slot name="buttons"/></template>
+        <template slot="afterButtons"><slot name="afterButtons"/></template>
     </VDialogWrapper>
 </template>
 
