@@ -26,6 +26,12 @@ export default {
 
 - `default` 
 
+- `beforeButtons` 
+
+- `buttons` 
+
+- `afterButtons` 
+
 #### props 
 
 - `buttons-right` ***Boolean*** (*optional*) 
