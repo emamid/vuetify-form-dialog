@@ -80,7 +80,7 @@ export default {
 
 - `title-color` ***String*** (*optional*) `default: 'primary'` 
 
-- `value` ***Boolean*** (*optional*) 
+- `value` ***Boolean*** (*optional*) `default: true` 
 
 #### data 
 
