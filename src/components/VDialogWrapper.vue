@@ -58,7 +58,10 @@ export default {
 			type: String,
 			default: 'primary'
 		},
-		value: Boolean
+		value: {
+			type: Boolean, 
+			default: true
+		}
 	},
 	computed: {
 		$cancelButtonColor() {

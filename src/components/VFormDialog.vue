@@ -71,7 +71,10 @@ export default {
 			type: String,
 			default: 'primary'
         },
-        value: Boolean
+        value: {
+            type: Boolean,
+            default: true
+        }
 	},
     methods: {
         handleClear() {
