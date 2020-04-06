@@ -1,34 +1,52 @@
 <template>
     <v-dialog v-model="value">
-		<v-toolbar :color="titleColor" :dark="darkTitle">
-			<v-toolbar-title>{{title}}</v-toolbar-title>
-			<v-spacer v-if="!hideCancelIcon"/>
-			<v-btn v-if="!hideCancelIcon" icon @click="cancel">
-				<v-icon>clear</v-icon>
-			</v-btn>
-		</v-toolbar>
+		<v-dialog-header 
+			:darkTitle="darkTitle" 
+			:hideCancelIcon="hideCancelIcon" 
+			:title="title" 
+			:titleColor="titleColor" 
+			@click="cancel"
+		/>
 		<v-card>
 			<v-card-text>
 				<slot/>			
 			</v-card-text>
-			<v-card-actions>
-				<v-spacer v-if="buttonsRight"/>
-				<slot name="beforeButtons"/>
-				<slot name="buttons">
-					<v-btn v-if="!hideSaveButton" :color="$saveButtonColor" :disabled="!isValid" @click="save">{{saveButtonText}}</v-btn>
-					<v-btn v-if="!hideCancelButton" :color="$cancelButtonColor" @click="cancel">{{cancelButtonText}}</v-btn>
-					<v-btn v-if="!hideClearButton" :color="$clearButtonColor" @click="clear">{{clearButtonText}}</v-btn>
-				</slot>
-				<slot name="afterButtons"/>
-			</v-card-actions>
+			<v-dialog-footer 
+				:buttonsRight="buttonsRight" 
+				:cancelButtonColor="cancelButtonColor" 
+				:cancelButtonText="cancelButtonText" 
+				:clearButtonText="clearButtonText"
+				:clearButtonColor="clearButtonColor"
+				:coloredButtons="coloredButtons"
+				:hideCancelButton="hideCancelButton"
+				:hideClearButton="hideClearButton"
+				:hideSaveButton="hideSaveButton"
+				:isValid="isValid"
+				:saveButtonColor="saveButtonColor"
+				:saveButtonText="saveButtonText"
+				@cancel="cancel"
+				@clear="clear"
+				@save="save"
+			>
+				<template slot="beforeButtons"><slot name="beforeButtons"/></template>
+				<template slot="buttons"><slot name="buttons"/></template>
+				<template slot="afterButtons"><slot name="afterButtons"/></template>
+			</v-dialog-footer>
 		</v-card>
 	</v-dialog>
 </template>
 
 <script>
 
+import VDialogFooter from './VDialogFooter';
+import VDialogHeader from './VDialogHeader';
+
 export default {
 	name: 'VDialogWrapper',
+	components: {
+		VDialogFooter,
+		VDialogHeader
+	},
 	props: {
 		buttonsRight: Boolean,
 		cancelButtonColor: String,
